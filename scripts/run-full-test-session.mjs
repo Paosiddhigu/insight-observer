@@ -39,6 +39,8 @@ async function fetchMetadata(url) {
 
 function loadTestFrameImage() {
   const candidates = [
+    path.join(root, 'test-assets/webcam-face.png'),
+    path.join(root, 'test-assets/webcam-crop.png'),
     path.join(root, 'test-assets/webcam-frame.png'),
     path.join(root, 'test-assets/webcam-frame.jpg'),
   ];
