@@ -18,7 +18,7 @@ AI-powered viewer reaction analysis. Watch a YouTube video while your webcam cap
 
 2. **Configure environment variables**
 
-   Copy the example env file and add your OpenAI API key:
+   **Do not commit API keys.** Create a local `.env` file (already listed in `.gitignore`) with your Vite-style key:
 
    ```bash
    cp .env.example .env
@@ -30,7 +30,7 @@ AI-powered viewer reaction analysis. Watch a YouTube video while your webcam cap
    VITE_OPENAI_API_KEY=your_openai_api_key_here
    ```
 
-   > **Important:** Never commit your `.env` file or API keys to version control. Only `.env.example` (with placeholder values) is tracked in git.
+   The app reads this via `import.meta.env.VITE_OPENAI_API_KEY` in the React frontend. Only `.env.example` (placeholder values) is tracked in git — never commit your real `.env` file.
 
 3. **Run the development server**
 
@@ -48,8 +48,14 @@ AI-powered viewer reaction analysis. Watch a YouTube video while your webcam cap
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `VITE_OPENAI_API_KEY` | Yes | OpenAI API key for AI processing. Uses Vite's `VITE_` prefix so it is loaded via `import.meta.env`. |
+| `VITE_OPENAI_API_KEY` | Yes | OpenAI API key. Must use the `VITE_` prefix so Vite exposes it to the client via `import.meta.env`. Store in `.env` (gitignored). |
 | `PORT` | No | Express API port (default: `3001`) |
+
+## Security
+
+- **Never commit API keys** — keep them in `.env` only
+- `.env` is listed in `.gitignore` and is not pushed to GitHub
+- Commit `.env.example` with placeholder values so others know which variables to set
 
 ## Scripts
 
