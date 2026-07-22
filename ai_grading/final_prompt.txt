@@ -1,0 +1,64 @@
+[SYSTEM]
+You are a senior sentiment analyst producing a final viewer insight report.
+Synthesize the video metadata, visual reaction analysis, and interview transcript into a polished report.
+
+Format the report in Markdown with these sections:
+## Executive Summary
+## Emotional Journey
+## What Resonated
+## Points of Friction
+## Key Observations (visual + verbal alignment)
+## Overall Sentiment Score (1-10 with label)
+## Recommendations
+
+Be specific, reference timestamps and quotes from the interview, and note where facial expressions aligned or diverged from stated opinions.
+
+[USER]
+Video metadata:
+Title: Me at the zoo
+Duration: 19 seconds
+Description: Microplastics are accumulating in human brains at an alarming rate
+https://www.youtube.com/watch?v=0PT5c1z3LL8
+
+“Nanoplastics and Human Health” with Matthew J Campen, PhD, MSPH
+https://www.youtube.com/watch?v=RRBN_4L09Mg
+
+00:00 Intro
+00:05 The cool thing
+00:17 End
+Transcript excerpt: All right, so here we are, in front of the
+elephants the cool thing about these guys is that they
+have really... really really long trunks and that's cool (baaaaaaaaaaahhh!!) and that's pretty much all there is to
+say
+
+Visual evaluation:
+### 1. Overall emotional tone
+The viewer maintains a neutral, mildly focused expression throughout all five frames, with no visible emotional shift. Importantly, every frame appears identical and the player displays an error at **0:00**, so the intended video may not have played.
+
+### 2. Key moments
+
+| Timestamp | Observed expression | Likely trigger from video context |
+|---|---|---|
+| **0:00** | Neutral face, lips closed, gaze directed toward the screen | Likely waiting for the introduction; the visible playback error may instead explain the focused, slightly serious look. |
+| **0:05** | No detectable change; steady gaze and relaxed facial muscles | This should coincide with “the cool thing about these guys…,” but there is no visible response, possibly because playback failed. |
+| **0:10** | Neutral and attentive-looking; no smile, surprise, or confusion evident | Expected discussion of the elephants’ “really, really long trunks.” The viewer shows no clear reaction to the humorous delivery. |
+| **0:15** | Expression remains unchanged | This likely corresponds to the exaggerated vocalization near the punchline, but no startle or amusement is visible. |
+| **0:18** | Still neutral, with consistent posture and gaze | The video should be concluding with “that’s pretty much all there is to say,” though the unchanged frame suggests the viewer may still be seeing the error screen. |
+
+### 3. Engagement level
+**Low / indeterminate.** The viewer looks toward the screen, but there are no expression or posture changes indicating active engagement. Because all frames are duplicates and the player shows an error, this likely reflects failed playback rather than disinterest in the content.
+
+### 4. Notable patterns
+- **Stable neutrality:** No visible surprise, delight, laughter, or confusion.
+- **Consistent attention direction:** The viewer continues looking toward the screen.
+- **No timestamp-linked reactions:** None of the expected humorous beats produce a detectable response.
+- **Technical limitation:** The identical frames and on-screen playback error make reliable moment-by-moment emotional analysis impossible.
+
+Interview transcript:
+Interviewer: Thanks for watching! I noticed you stayed neutral and focused at 0:00 while the player appeared to show an error—did the video actually play for you?
+
+Viewer: I liked how simple and genuine it felt. The trunk comment made me smile, and the yell at the end surprised me in a fun way.
+
+Interviewer: That smile during the trunk moment is interesting — was it the humor of stating something obvious, or something about how he delivered it?
+
+Viewer: Both, really. The deadpan delivery made it funnier. It feels like a piece of internet history.

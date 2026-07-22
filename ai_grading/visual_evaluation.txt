@@ -1,0 +1,21 @@
+### 1. Overall emotional tone
+The viewer maintains a neutral, mildly focused expression throughout all five frames, with no visible emotional shift. Importantly, every frame appears identical and the player displays an error at **0:00**, so the intended video may not have played.
+
+### 2. Key moments
+
+| Timestamp | Observed expression | Likely trigger from video context |
+|---|---|---|
+| **0:00** | Neutral face, lips closed, gaze directed toward the screen | Likely waiting for the introduction; the visible playback error may instead explain the focused, slightly serious look. |
+| **0:05** | No detectable change; steady gaze and relaxed facial muscles | This should coincide with “the cool thing about these guys…,” but there is no visible response, possibly because playback failed. |
+| **0:10** | Neutral and attentive-looking; no smile, surprise, or confusion evident | Expected discussion of the elephants’ “really, really long trunks.” The viewer shows no clear reaction to the humorous delivery. |
+| **0:15** | Expression remains unchanged | This likely corresponds to the exaggerated vocalization near the punchline, but no startle or amusement is visible. |
+| **0:18** | Still neutral, with consistent posture and gaze | The video should be concluding with “that’s pretty much all there is to say,” though the unchanged frame suggests the viewer may still be seeing the error screen. |
+
+### 3. Engagement level
+**Low / indeterminate.** The viewer looks toward the screen, but there are no expression or posture changes indicating active engagement. Because all frames are duplicates and the player shows an error, this likely reflects failed playback rather than disinterest in the content.
+
+### 4. Notable patterns
+- **Stable neutrality:** No visible surprise, delight, laughter, or confusion.
+- **Consistent attention direction:** The viewer continues looking toward the screen.
+- **No timestamp-linked reactions:** None of the expected humorous beats produce a detectable response.
+- **Technical limitation:** The identical frames and on-screen playback error make reliable moment-by-moment emotional analysis impossible.
