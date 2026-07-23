@@ -11,6 +11,38 @@ function getOpenAI() {
   return new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
 }
 
+function getResponseText(response: OpenAI.Responses.Response): string {
+  if (response.output_text?.trim()) {
+    return response.output_text;
+  }
+
+  for (const item of response.output ?? []) {
+    if (item.type !== 'message') continue;
+    for (const part of item.content ?? []) {
+      if (part.type === 'output_text' && part.text?.trim()) {
+        return part.text;
+      }
+    }
+  }
+
+  return '';
+}
+
+async function createModelResponse(options: {
+  instructions: string;
+  input: OpenAI.Responses.ResponseInput;
+  maxOutputTokens: number;
+}): Promise<string> {
+  const response = await getOpenAI().responses.create({
+    model: MODEL,
+    instructions: options.instructions,
+    input: options.input,
+    max_output_tokens: options.maxOutputTokens,
+  });
+
+  return getResponseText(response);
+}
+
 function formatTimestamp(seconds: number) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
@@ -29,24 +61,24 @@ function metadataBlock(metadata: VideoMetadata) {
 export async function evaluateVisualReactions(metadata: VideoMetadata, frames: CapturedFrame[]) {
   const sampledFrames = frames.slice(0, 20);
 
-  const imageContent = sampledFrames.map((frame) => ({
-    type: 'image_url' as const,
-    image_url: {
-      url: frame.image,
-      detail: 'low' as const,
-    },
-  }));
-
   const timestamps = sampledFrames
     .map((frame) => `- ${formatTimestamp(frame.timestampSeconds)}`)
     .join('\n');
 
-  const response = await getOpenAI().chat.completions.create({
-    model: MODEL,
-    messages: [
-      {
-        role: 'system',
-        content: `You are an expert behavioral analyst observing a viewer's facial reactions while they watch a YouTube video.
+  const userContent: OpenAI.Responses.ResponseInputContent[] = [
+    {
+      type: 'input_text',
+      text: `Here are ${sampledFrames.length} webcam frames captured while the user watched "${metadata.title}". For each frame, infer the expression and connect it to what was likely happening in the video at that moment. Reference timestamps explicitly.`,
+    },
+    ...sampledFrames.map((frame) => ({
+      type: 'input_image' as const,
+      image_url: frame.image,
+      detail: 'low' as const,
+    })),
+  ];
+
+  const text = await createModelResponse({
+    instructions: `You are an expert behavioral analyst observing a viewer's facial reactions while they watch a YouTube video.
 Analyze the provided webcam frames captured at specific timestamps during viewing.
 Return a structured evaluation with:
 1. Overall emotional tone (1-2 sentences)
@@ -59,22 +91,11 @@ ${metadataBlock(metadata)}
 
 Frame timestamps (in order):
 ${timestamps}`,
-      },
-      {
-        role: 'user',
-        content: [
-          {
-            type: 'text',
-            text: `Here are ${sampledFrames.length} webcam frames captured while the user watched "${metadata.title}". For each frame, infer the expression and connect it to what was likely happening in the video at that moment. Reference timestamps explicitly.`,
-          },
-          ...imageContent,
-        ],
-      },
-    ],
-    max_completion_tokens: 2000,
+    input: [{ role: 'user', content: userContent }],
+    maxOutputTokens: 2000,
   });
 
-  return response.choices[0]?.message?.content ?? 'Unable to generate visual evaluation.';
+  return text || 'Unable to generate visual evaluation.';
 }
 
 function interviewSystemPrompt(metadata: VideoMetadata, visualEvaluation: string) {
@@ -97,23 +118,19 @@ ${visualEvaluation}`;
 }
 
 export async function startInterview(metadata: VideoMetadata, visualEvaluation: string) {
-  const response = await getOpenAI().chat.completions.create({
-    model: MODEL,
-    messages: [
-      {
-        role: 'system',
-        content: interviewSystemPrompt(metadata, visualEvaluation),
-      },
+  const text = await createModelResponse({
+    instructions: interviewSystemPrompt(metadata, visualEvaluation),
+    input: [
       {
         role: 'user',
         content:
           'The video just ended. Begin the interview with a friendly opening and your first question. Reference at least one specific moment from the visual evaluation.',
       },
     ],
-    max_completion_tokens: 500,
+    maxOutputTokens: 500,
   });
 
-  return response.choices[0]?.message?.content ?? 'Thanks for watching! What stood out to you most?';
+  return text || 'Thanks for watching! What stood out to you most?';
 }
 
 export async function runInterviewTurn(
@@ -122,28 +139,19 @@ export async function runInterviewTurn(
   messages: ChatMessage[],
   userMessage: string,
 ) {
-  const chatMessages = [
-    {
-      role: 'system' as const,
-      content: interviewSystemPrompt(metadata, visualEvaluation),
-    },
-    ...messages.map((message) => ({
-      role: message.role,
-      content: message.content,
-    })),
-    {
-      role: 'user' as const,
-      content: userMessage,
-    },
-  ];
-
-  const response = await getOpenAI().chat.completions.create({
-    model: MODEL,
-    messages: chatMessages,
-    max_completion_tokens: 500,
+  const text = await createModelResponse({
+    instructions: interviewSystemPrompt(metadata, visualEvaluation),
+    input: [
+      ...messages.map((message) => ({
+        role: message.role,
+        content: message.content,
+      })),
+      { role: 'user' as const, content: userMessage },
+    ],
+    maxOutputTokens: 500,
   });
 
-  return response.choices[0]?.message?.content ?? 'Could you tell me more about that?';
+  return text || 'Could you tell me more about that?';
 }
 
 export async function generateFinalReport(
@@ -155,12 +163,8 @@ export async function generateFinalReport(
     .map((message) => `${message.role === 'assistant' ? 'Interviewer' : 'Viewer'}: ${message.content}`)
     .join('\n\n');
 
-  const response = await getOpenAI().chat.completions.create({
-    model: MODEL,
-    messages: [
-      {
-        role: 'system',
-        content: `You are a senior sentiment analyst producing a final viewer insight report.
+  const text = await createModelResponse({
+    instructions: `You are a senior sentiment analyst producing a final viewer insight report.
 Synthesize the video metadata, visual reaction analysis, and interview transcript into a polished report.
 
 Format the report in Markdown with these sections:
@@ -173,7 +177,7 @@ Format the report in Markdown with these sections:
 ## Recommendations
 
 Be specific, reference timestamps and quotes from the interview, and note where facial expressions aligned or diverged from stated opinions.`,
-      },
+    input: [
       {
         role: 'user',
         content: `Video metadata:
@@ -186,8 +190,10 @@ Interview transcript:
 ${transcript}`,
       },
     ],
-    max_completion_tokens: 2500,
+    maxOutputTokens: 2500,
   });
 
-  return response.choices[0]?.message?.content ?? 'Unable to generate final report.';
+  return text || 'Unable to generate final report.';
 }
+
+export { MODEL };

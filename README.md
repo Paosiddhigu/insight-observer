@@ -6,7 +6,7 @@ AI-powered viewer reaction analysis. Watch a YouTube video while your webcam cap
 
 - **React + Vite** — frontend UI (`src/App.tsx`)
 - **Express** — YouTube metadata/transcript API (proxied from Vite)
-- **OpenAI** — visual evaluation, interview, and final report (`gpt-5.6-luna`)
+- **OpenAI** — visual evaluation, interview, and final report via the **Responses API** (`POST /v1/responses`, model `gpt-5.6-luna`)
 
 ## Setup
 

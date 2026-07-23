@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
+import { createModelResponse } from '../server/openai-responses.js';
 import {
   buildFinalSynthesisPrompt,
   GRADING_DIR,
@@ -16,7 +17,6 @@ const root = path.resolve(__dirname, '..');
 
 dotenv.config({ path: path.join(root, '.env') });
 
-const MODEL = 'gpt-5.6-luna';
 const TEST_VIDEO_URL = 'https://www.youtube.com/watch?v=jNQXAC9IVRw';
 
 const apiKey = process.env.VITE_OPENAI_API_KEY;
@@ -51,12 +51,8 @@ async function evaluateVisualReactions(metadata, frames) {
     .map((frame) => `- ${formatTimestamp(frame.timestampSeconds)}`)
     .join('\n');
 
-  const response = await openai.chat.completions.create({
-    model: MODEL,
-    messages: [
-      {
-        role: 'system',
-        content: `You are an expert behavioral analyst observing a viewer's facial reactions while they watch a YouTube video.
+  return createModelResponse(openai, {
+    instructions: `You are an expert behavioral analyst observing a viewer's facial reactions while they watch a YouTube video.
 Analyze the provided webcam frames captured at specific timestamps during viewing.
 Return a structured evaluation with:
 1. Overall emotional tone (1-2 sentences)
@@ -69,18 +65,9 @@ ${metadataBlock(metadata)}
 
 Frame timestamps (in order):
 ${timestamps}`,
-      },
-      {
-        role: 'user',
-        content: `Here are ${sampledFrames.length} webcam frames captured while the user watched "${metadata.title}". For each frame, infer the expression and connect it to what was likely happening in the video at that moment. Reference timestamps explicitly.
-
-Note: This test run uses simulated frame timestamps without attached image files.`,
-      },
-    ],
-    max_completion_tokens: 2000,
+    input: `Here are ${sampledFrames.length} simulated timestamps while the user watched "${metadata.title}". Infer likely expressions and connect them to the video context. Reference timestamps explicitly.`,
+    maxOutputTokens: 2000,
   });
-
-  return response.choices[0]?.message?.content ?? 'Unable to generate visual evaluation.';
 }
 
 async function generateFinalReport(metadata, visualEvaluation, messages) {
@@ -88,12 +75,8 @@ async function generateFinalReport(metadata, visualEvaluation, messages) {
     .map((message) => `${message.role === 'assistant' ? 'Interviewer' : 'Viewer'}: ${message.content}`)
     .join('\n\n');
 
-  const response = await openai.chat.completions.create({
-    model: MODEL,
-    messages: [
-      {
-        role: 'system',
-        content: `You are a senior sentiment analyst producing a final viewer insight report.
+  return createModelResponse(openai, {
+    instructions: `You are a senior sentiment analyst producing a final viewer insight report.
 Synthesize the video metadata, visual reaction analysis, and interview transcript into a polished report.
 
 Format the report in Markdown with these sections:
@@ -106,10 +89,7 @@ Format the report in Markdown with these sections:
 ## Recommendations
 
 Be specific, reference timestamps and quotes from the interview, and note where facial expressions aligned or diverged from stated opinions.`,
-      },
-      {
-        role: 'user',
-        content: `Video metadata:
+    input: `Video metadata:
 ${metadataBlock(metadata)}
 
 Visual evaluation:
@@ -117,12 +97,8 @@ ${visualEvaluation}
 
 Interview transcript:
 ${transcript}`,
-      },
-    ],
-    max_completion_tokens: 2500,
+    maxOutputTokens: 2500,
   });
-
-  return response.choices[0]?.message?.content ?? 'Unable to generate final report.';
 }
 
 async function main() {

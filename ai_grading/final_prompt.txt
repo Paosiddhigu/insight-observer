@@ -32,31 +32,30 @@ have really... really really long trunks and that's cool (baaaaaaaaaaahhh!!) and
 say
 
 Visual evaluation:
-### Overall emotional tone
-The viewer maintains a consistently neutral, composed expression throughout the 19-second video. There are no clearly visible shifts indicating surprise, amusement, confusion, or discomfort.
+## 1. Overall emotional tone
+The viewer maintains a calm, neutral expression throughout all five frames. There are no visible signs of strong amusement, surprise, confusion, or displeasure; the consistent forward gaze suggests passive attention.
 
-### Key moments
+## 2. Key moments
 
 | Timestamp | Observed expression | Likely video trigger/context |
 |---|---|---|
-| **0:00** | Neutral face, closed lips, steady forward gaze | The opening: “All right, so here we are, in front of the elephants.” The viewer appears to be settling into the clip. |
-| **0:05** | Expression remains neutral and focused | The speaker begins, “The cool thing about these guys…” No visible anticipatory reaction. |
-| **0:10** | Unchanged, composed expression | The comment about elephants having “really, really, really long trunks.” The mild humor does not produce a visible smile. |
-| **0:15** | Still neutral; no obvious startle response | Likely around the exaggerated “baaaaaahhh!” vocalization and “that’s cool.” Despite the louder/comedic moment, no clear facial reaction is captured. |
-| **0:18** | Neutral through the ending | The speaker concludes, “That’s pretty much all there is to say.” The abrupt, understated ending produces no visible change. |
+| **0:00** | Neutral face, relaxed mouth, direct gaze | The video is beginning with the speaker introducing the scene in front of the elephants. |
+| **0:05** | Still neutral and attentive; no visible smile | The speaker says “the cool thing” about the elephants, beginning the setup for the comment about their trunks. |
+| **0:10** | Neutral expression with steady gaze | The speaker is likely emphasizing that elephants have “really, really, really long trunks.” No visible reaction to this statement. |
+| **0:15** | Expression remains largely unchanged and unsmiling | The comedic vocalization (“baaaaaaaaaaahhh!!”) and the concluding remark are likely occurring around this point. The viewer does not show an obvious laugh or surprise response. |
+| **0:18** | Neutral, composed expression | The video is ending with “that’s pretty much all there is to say.” The viewer remains visually disengaged from an overt emotional reaction. |
 
-### Engagement level: **Medium**
-The viewer keeps a steady forward gaze and does not appear visibly distracted, suggesting basic attention. However, the lack of facial movement or reactive expressions makes strong emotional engagement difficult to establish.
+## 3. Engagement level: **Low to Medium**
+The viewer appears to be looking toward the screen, indicating some basic attention, but the identical facial expression across timestamps and lack of response to the comic sound suggest limited visible engagement.
 
-### Notable patterns
-- **Strong expression consistency:** All five frames appear nearly identical.
-- **No visible surprise or startle:** Even near the likely loud vocalization at **0:15**.
-- **No obvious delight or amusement:** The clip’s understated humor does not elicit a visible smile.
-- **Possible passive attention:** The gaze remains directed toward the screen, but facial responsiveness is minimal.
-- Because these are isolated frames—and appear effectively duplicated—brief reactions between timestamps may not have been captured.
+## 4. Notable patterns
+- **Strong consistency:** Facial posture and gaze remain nearly unchanged across the entire 19-second clip.
+- **No visible surprise:** No raised eyebrows or widened eyes during the exaggerated vocalization.
+- **No visible delight:** No smile or laugh response to the humorous elephant-trunk commentary.
+- **No visible confusion or boredom cues:** The frames do not show pronounced brow furrowing, looking away, or obvious fatigue, so these states cannot be confidently inferred.
 
 Interview transcript:
-Interviewer: Thanks for watching! You stayed focused but looked composed throughout—even during the exaggerated “baaaaaahhh!” around 0:15. What did you like most about the clip, if anything?
+Interviewer: Thanks for watching! I noticed you stayed calmly focused throughout, even during the exaggerated “baaaaaaaaaaahhh!!” near the end, without a visible smile or surprise. What did you like or dislike about the video?
 
 Viewer: I liked how simple and genuine it felt. The trunk comment made me smile, and the yell at the end surprised me in a fun way.
 
