@@ -1,21 +1,41 @@
 ## 1. Overall emotional tone
-The viewer maintains a calm, neutral expression throughout all five frames. There are no visible signs of strong amusement, surprise, confusion, or displeasure; the consistent forward gaze suggests passive attention.
+
+The viewer shows a predominantly serious, attentive, and restrained reaction. Their sustained eye contact, occasional hand-to-mouth gesture, and later movement closer to the camera suggest growing concentration or curiosity rather than overt excitement.
 
 ## 2. Key moments
 
-| Timestamp | Observed expression | Likely video trigger/context |
+| Timestamp | Observed expression | Likely trigger from the video context |
 |---|---|---|
-| **0:00** | Neutral face, relaxed mouth, direct gaze | The video is beginning with the speaker introducing the scene in front of the elephants. |
-| **0:05** | Still neutral and attentive; no visible smile | The speaker says “the cool thing” about the elephants, beginning the setup for the comment about their trunks. |
-| **0:10** | Neutral expression with steady gaze | The speaker is likely emphasizing that elephants have “really, really, really long trunks.” No visible reaction to this statement. |
-| **0:15** | Expression remains largely unchanged and unsmiling | The comedic vocalization (“baaaaaaaaaaahhh!!”) and the concluding remark are likely occurring around this point. The viewer does not show an obvious laugh or surprise response. |
-| **0:18** | Neutral, composed expression | The video is ending with “that’s pretty much all there is to say.” The viewer remains visually disengaged from an overt emotional reaction. |
+| **0:00** | Neutral, composed face; direct gaze | Establishing attention as the trailer begins, likely during its opening setup. |
+| **0:06** | Still neutral but focused; lips gently pressed | Watching the initial mythic or war-related imagery and orienting to the story. |
+| **0:12** | Hand raised near the mouth; eyes attentive | Possible reaction to an ominous line, dramatic visual, or the trailer’s first emotionally charged moment. |
+| **0:18** | Finger resting near the lips; thoughtful, slightly tense expression | Likely processing the narration about war, separation, or the difficult journey home. |
+| **0:24** | Hand lowered; mild concern or concentration | The viewer appears to be following a more serious dramatic beat, potentially connected to the men’s return and its obstacles. |
+| **0:30** | Neutral, steady gaze | Continued absorption in the trailer’s world-building and action imagery. |
+| **0:36** | Calm but focused; minimal facial movement | Likely watching a transitional sequence or additional character/action reveals. |
+| **0:42** | Slightly open mouth and faint lift at the cheeks; mild interest or surprise | A visually striking reveal, cast appearance, or escalation in the trailer may have prompted increased interest. |
+| **0:48** | Leans noticeably closer; mouth slightly open | Stronger engagement with an important reveal, action sequence, or emotionally significant line. |
+| **0:54** | Very close to the camera; concentrated gaze and pressed lips | Sustained attention during a dramatic or information-dense section of the trailer. |
+| **1:00** | Close-up, neutral-to-serious expression | Carefully following the developing conflict or the implications of the voyage. |
+| **1:06** | Lips pursed; brow slightly focused | Possible uncertainty, evaluation, or concern in response to a threatening event or unresolved story beat. |
+| **1:12** | Direct, composed gaze; restrained mouth | Continuing to process the trailer’s emotional stakes, likely involving homecoming or separation. |
+| **1:18** | Brief sideways glance; serious expression | Could reflect momentary thought, comparison, or reaction to a new character or unexpected image. |
+| **1:24** | Returns to direct gaze; attentive and neutral | Re-engages fully with the central trailer sequence or closing narrative buildup. |
+| **1:30** | Slightly softer expression, lips relaxed | The trailer may be moving toward a more emotional or reflective passage, possibly the promise to return. |
+| **1:36** | Neutral but alert; eyes remain fixed forward | Watching the final escalation, title reveal, or major visual montage. |
+| **1:42** | Calm, mildly expectant expression | Likely taking in the final dramatic imagery and release information. |
+| **1:48** | Sits farther back; faint, controlled smile | End-of-trailer response suggesting measured approval or satisfaction, without overt excitement. |
 
-## 3. Engagement level: **Low to Medium**
-The viewer appears to be looking toward the screen, indicating some basic attention, but the identical facial expression across timestamps and lack of response to the comic sound suggest limited visible engagement.
+*Because only an excerpt of the trailer transcript is provided, the specific visual triggers are necessarily approximate; the strongest textual candidates are the lines about returning home, the promise to come back, and “What if I can’t?”*
+
+## 3. Engagement level: **High**
+
+The viewer maintains a sustained forward gaze throughout and leans substantially closer to the camera from approximately **0:48 through 1:24**, indicating heightened visual attention. The hand-to-mouth gesture around **0:12–0:18** and the limited distraction suggest active emotional or cognitive processing, even though the reactions remain subtle.
 
 ## 4. Notable patterns
-- **Strong consistency:** Facial posture and gaze remain nearly unchanged across the entire 19-second clip.
-- **No visible surprise:** No raised eyebrows or widened eyes during the exaggerated vocalization.
-- **No visible delight:** No smile or laugh response to the humorous elephant-trunk commentary.
-- **No visible confusion or boredom cues:** The frames do not show pronounced brow furrowing, looking away, or obvious fatigue, so these states cannot be confidently inferred.
+
+- **Sustained concentration:** Minimal smiling or looking away; the expression remains focused for most of the trailer.
+- **Mild apprehension or suspense:** The hand near the mouth at **0:12–0:18** and pursed lips at **1:06** are consistent with tension or uncertainty.
+- **Increased engagement:** The forward lean beginning around **0:48** suggests that a reveal or dramatic escalation captured the viewer’s attention.
+- **Emotional restraint:** There is no clear broad surprise, laughter, shock, or visible sadness. The response is primarily internalized and thoughtful.
+- **Possible mild approval at the end:** The subtle softening of the expression at **1:48** may indicate interest or a positive reaction to the trailer’s conclusion.
