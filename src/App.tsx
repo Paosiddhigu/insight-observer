@@ -7,6 +7,7 @@ import { VisualEvaluation } from './components/VisualEvaluation';
 import { WatchSession } from './components/WatchSession';
 import * as api from './services/api';
 import type { AppPhase, CapturedFrame, ChatMessage, VideoMetadata } from './types';
+import { extractYouTubeId } from './utils/helpers';
 import './App.css';
 
 export default function App() {
@@ -29,6 +30,14 @@ export default function App() {
   const handleFetchMetadata = useCallback(async () => {
     setLoadingMeta(true);
     setError(null);
+
+    if (!extractYouTubeId(url.trim())) {
+      setError('Invalid YouTube URL. Paste a full watch link — the video ID must be 11 characters.');
+      setMetadata(null);
+      setLoadingMeta(false);
+      return;
+    }
+
     try {
       const data = await api.fetchYouTubeMetadata(url);
       setMetadata(data);

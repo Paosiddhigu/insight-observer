@@ -9,10 +9,28 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
     ...options,
   });
 
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.error ?? 'Request failed');
+  const text = await response.text();
+  let data: { error?: string } | null = null;
+
+  if (text) {
+    try {
+      data = JSON.parse(text) as { error?: string };
+    } catch {
+      throw new Error('Unexpected response from server.');
+    }
   }
+
+  if (!response.ok) {
+    if (response.status === 502 || response.status === 503) {
+      throw new Error('Backend API is unavailable. Run npm run dev to start both servers.');
+    }
+    throw new Error(data?.error ?? `Request failed (${response.status}).`);
+  }
+
+  if (!data) {
+    throw new Error('Empty response from server.');
+  }
+
   return data as T;
 }
 
