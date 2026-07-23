@@ -16,7 +16,7 @@ const root = path.resolve(__dirname, '..');
 
 dotenv.config({ path: path.join(root, '.env') });
 
-const MODEL = 'gpt-5.6';
+const MODEL = 'gpt-5.6-luna';
 const TEST_VIDEO_URL = 'https://www.youtube.com/watch?v=jNQXAC9IVRw';
 
 const apiKey = process.env.VITE_OPENAI_API_KEY;

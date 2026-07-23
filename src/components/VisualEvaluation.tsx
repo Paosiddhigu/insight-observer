@@ -51,7 +51,7 @@ export function VisualEvaluation({ evaluation, loading, error }: Props) {
       <section className="panel evaluation-panel loading-panel">
         <div className="spinner" />
         <h3>Analyzing your reactions…</h3>
-        <p>GPT-5.6 is reviewing up to 20 webcam frames captured during viewing.</p>
+        <p>GPT-5.6 Luna is reviewing up to 20 webcam frames captured during viewing.</p>
       </section>
     );
   }

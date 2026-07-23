@@ -10,7 +10,7 @@ const root = path.resolve(__dirname, '..');
 
 dotenv.config({ path: path.join(root, '.env') });
 
-const MODEL = 'gpt-5.6';
+const MODEL = 'gpt-5.6-luna';
 const TEST_VIDEO_URL = 'https://www.youtube.com/watch?v=jNQXAC9IVRw';
 
 const apiKey = process.env.VITE_OPENAI_API_KEY;
@@ -181,7 +181,7 @@ ${transcript}`,
 }
 
 async function main() {
-  console.log('=== Full test session (gpt-5.6) ===\n');
+  console.log('=== Full test session (gpt-5.6-luna) ===\n');
 
   console.log('1. Fetching YouTube metadata…');
   const rawMetadata = await fetchMetadata(TEST_VIDEO_URL);
@@ -196,7 +196,7 @@ async function main() {
   }));
   console.log(`   Using ${frames.length} frames\n`);
 
-  console.log('3. Running visual evaluation (gpt-5.6)…');
+  console.log('3. Running visual evaluation (gpt-5.6-luna)…');
   const visualEvaluation = await evaluateVisualReactions(metadata, frames);
   console.log('   Done.\n');
 

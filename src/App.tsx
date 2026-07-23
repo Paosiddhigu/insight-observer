@@ -218,7 +218,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <span>Model: gpt-5.6</span>
+        <span>Model: gpt-5.6-luna</span>
         <span>Max 20 webcam frames per session</span>
       </footer>
     </div>

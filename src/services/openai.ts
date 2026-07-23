@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
 import type { CapturedFrame, ChatMessage, VideoMetadata } from '../types';
 
-const MODEL = 'gpt-5.6';
+const MODEL = 'gpt-5.6-luna';
 
 function getOpenAI() {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
